@@ -12,7 +12,11 @@ Equality holds if and only if the triangle is equilateral.
 
 This repository proves the side-length formulation of Conjecture 5.1 in Jian Liu, *Improvements of two inequalities in an acute triangle*, International Journal of Geometry 13 (2024), no. 4, 63–79, p. 78.
 
-[Original problem](https://ijgeometry.com/wp-content/uploads/2024/09/6.-63-79.pdf).
+[Original problem](https://ijgeometry.com/wp-content/uploads/2024/09/6.-63-79.pdf), Conjecture 5.1, equation (5.2).
+
+This is a personal mathematics exploration by a physics student, developed with AI assistance and shared on GitHub for reading, reproduction, and feedback.
+
+**Start here:** [Mathematical exposition](docs/proof-outline.md) · [中文阅读指南](docs/guide-zh.md) · [Project status](docs/RESEARCH_STATUS.md)
 
 ## Verification status
 
@@ -28,7 +32,7 @@ The standard Lake build and the final axiom report also passed on GitHub's Ubunt
 
 The proof has no `sorry`, `admit`, newly postulated mathematical axiom, or `native_decide`. The finite certificate uses `by decide`, checked by Lean's kernel.
 
-The complete equality classification is formalized in `LiuEquality.equality_iff_equilateral` in [Equality.lean](Equality.lean): equality holds if and only if `a = b` and `b = c`. It has passed local compilation with the same standard axiom report; consult Actions for the remote replay of each revision.
+The complete equality classification is formalized in `LiuEquality.equality_iff_equilateral` in [Equality.lean](Equality.lean): equality holds if and only if `a = b` and `b = c`. Both final theorems have passed local compilation and a [GitHub Ubuntu replay including equality](https://github.com/yoaxi001/triangle-bisector-median-inequality/actions/runs/44513726995), for source commit `19fdc92d76548d176e8e8e8729f6028cd3ab918c`, with the same standard axiom report. Consult Actions for the remote replay of later revisions.
 
 This is an AI-assisted research result. Novelty, priority, and publication suitability have not been independently established. It has not received independent expert review. See [research status](docs/RESEARCH_STATUS.md) and [AI contribution disclosure](AI_DISCLOSURE.md).
 
@@ -37,10 +41,10 @@ This is an AI-assisted research result. Novelty, priority, and publication suita
 Install [Lean via elan](https://lean-lang.org/install/) and Git, then run from the repository root:
 
 ```sh
-lake update
 lake exe cache get
 lake build
 lake env lean Main.lean
+lake env lean Equality.lean
 ```
 
 The Lean toolchain and mathlib revision are pinned. GitHub Actions replays the build; consult the Actions tab for the outcome of subsequent revisions. The initial portable Lake workflow has passed in the run linked above.
@@ -57,10 +61,12 @@ The certificate computation is substantial compared with the analytic lemmas. Th
 
 The certificate contains 3030 strict interval leaves, 87 analytic-neighborhood leaves, and 123 empty leaves. Numerical sampling is not used as evidence inside the formal theorem.
 
-[Human-readable proof outline](docs/proof-outline.md). The outline currently uses a slightly stronger local estimate than the Lean implementation; it should be harmonized before use as a paper.
+[Human-readable mathematical exposition](docs/proof-outline.md), aligned with the final Lean estimates and including the finite checker and complete equality argument.
 
 ## 中文说明
 
-主不等式及“等号当且仅当三角形等边”的分类均已通过本地 Lean 验证。仓库用于公开源码、接受复现和审查，不宣称已确认首次解决，也不宣称已通过同行评审。剩余工作包括独立专家复核、核对形式化命题与原猜想、新颖性查证，以及整理与代码一致的论文。
+这是一个物理专业学生出于兴趣、在 AI 辅助下完成的数学探索项目。主不等式及“等号当且仅当三角形等边”的分类均已通过本地 Lean 验证和 GitHub Ubuntu 自动复验。数学证明说明已与最终代码中的估计对齐；可从[中文阅读指南](docs/guide-zh.md)开始阅读。
+
+仓库用于公开源码、接受复现和反馈，不宣称已独立确认首次解决，也不宣称已通过同行评审。项目以 GitHub 公开为目标，无需投稿期刊或 arXiv。欢迎通过 Issue 提供更早的证明、复现记录或改进建议。
 
 Code and repository-authored documentation are released under the MIT license. The cited article and external dependencies retain their own licenses; the article itself is not redistributed here.
