@@ -1,5 +1,7 @@
 # A Lean-checked proof of Liu's Conjecture 5.1
 
+[![Verify Lean proof](https://github.com/yoaxi001/liu51-proof/actions/workflows/lean.yml/badge.svg)](https://github.com/yoaxi001/liu51-proof/actions/workflows/lean.yml)
+
 This repository proves the side-length formulation of Conjecture 5.1 in Jian Liu, *Improvements of two inequalities in an acute triangle*, International Journal of Geometry 13 (2024), no. 4, 63–79, p. 78.
 
 For positive sides of a nondegenerate triangle, with internal bisectors $w_a,w_b,w_c$, medians $m_a,m_b,m_c$, and semiperimeter $s$, the result is
@@ -20,6 +22,8 @@ The theorem has been compiled locally using Lean 4.19.0 and mathlib v4.19.0. Its
 [propext, Classical.choice, Quot.sound]
 ```
 
+The standard Lake build and the final axiom report also passed on GitHub's Ubuntu runner on 2026-11-19, for source commit `4e8d2db955efa1d80984bc869aa74fe4accb149e`: [successful verification run](https://github.com/yoaxi001/liu51-proof/actions/runs/44510445305). This is a separate machine replay, not an independent mathematical peer review.
+
 The proof has no `sorry`, `admit`, newly postulated mathematical axiom, or `native_decide`. The finite certificate uses `by decide`, checked by Lean's kernel.
 
 This is an AI-assisted research result. Novelty, priority, and publication suitability have not been independently established. It has not received independent expert review. The complete equality-case characterization has not yet been formalized. See [research status](docs/RESEARCH_STATUS.md) and [AI contribution disclosure](AI_DISCLOSURE.md).
@@ -35,7 +39,7 @@ lake build
 lake env lean Main.lean
 ```
 
-The Lean toolchain and mathlib revision are pinned. A GitHub Actions workflow is provided to replay the build. A workflow file being present does not mean a GitHub-hosted run has passed; consult the Actions tab and the build logs.
+The Lean toolchain and mathlib revision are pinned. GitHub Actions replays the build; consult the Actions tab for the outcome of subsequent revisions. The initial portable Lake workflow has passed in the run linked above.
 
 The certificate computation is substantial compared with the analytic lemmas. The exact certificate, including its subdivision tree, is committed as source, so the Python search/generation environment is not required to verify the theorem.
 

@@ -4,7 +4,7 @@
   "mathlib_revision": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
   "result": "all four proof modules compiled from this independent repository",
   "environment": "Windows; direct compiler; existing matching mathlib dependency artifacts",
-  "github_ci_status": "not yet run",
+  "github_ci_status": "success",
   "theorem": "LiuMain.liu_conjecture_5_1",
   "axioms": [
     "propext",
@@ -16,5 +16,9 @@
     "RealBounds.lean": "7cb965443289ed40b76eb337f637be413b56e0afc244162f9b52c9d314057691",
     "CheckerCoverage.lean": "bf652f342db6818976cc300dc63dab2196cddcd8f5a7c7bbe2acdb96a2d9cc53",
     "Main.lean": "e05f3c909d980a83f343becb4e8443616e8478db7ce7106e4fead1de339ac1ba"
-  }
+  },
+  "github_ci_run": "https://github.com/yoaxi001/liu51-proof/actions/runs/44510445305",
+  "github_verified_commit": "4e8d2db955efa1d80984bc869aa74fe4accb149e",
+  "github_completed_at_utc": "2026-11-19T11:01:01Z",
+  "github_environment": "Ubuntu GitHub-hosted runner; standard Lake build"
 }
