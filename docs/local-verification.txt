@@ -1,0 +1,84 @@
+Lean (version 4.19.0, x86_64-w64-windows-gnu, commit 6caaee842e94, Release)
+Compiling Certificate from repository sources
+'LiuCertificate.certificate_passes' does not depend on any axioms
+Compiling RealBounds from repository sources
+RealBounds.lean:87:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+RealBounds.lean:90:5: warning: unused variable `hs`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+RealBounds.lean:136:46: warning: unused variable `bh`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+RealBounds.lean:136:52: warning: unused variable `ch`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+Try this: ring_nf
+Try this: ring_nf
+Try this: ring_nf
+Try this: ring_nf
+RealBounds.lean:303:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+RealBounds.lean:309:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+RealBounds.lean:315:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+RealBounds.lean:319:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+RealBounds.lean:323:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+RealBounds.lean:327:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'LiuReal.certified_triangle_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.scaled_product_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.scaled_bisector_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.scaled_median_interval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.nat_sub_cast_max' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.scaled_sqrt_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.local_triangle_inequality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.median_local_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.bisector_local_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.bisector_interval_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.local_radical_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.aggregate_local_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.median_interval_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.rational_radical_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.perturbation_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.bisector_loss_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.sqrt_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.sqrt_cube_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.local_product_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.assemble_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.normalized_median_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuReal.normalized_bisector_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+Compiling CheckerCoverage from repository sources
+'LiuCertificate.verified_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuCertificate.empty_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuCertificate.check_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+Compiling Main from repository sources
+Main.lean:42:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Main.lean:87:65: warning: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+Main.lean:88:65: warning: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+Main.lean:89:65: warning: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+Main.lean:87:65: warning: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+Main.lean:88:65: warning: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+Main.lean:89:65: warning: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+Main.lean:80:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Main.lean:165:93: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Main.lean:168:93: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Main.lean:171:97: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'LiuMain.liu_conjecture_5_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuMain.sorted_triangle_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuMain.sorted_certificate_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuMain.local_leaf_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuMain.mean_neighborhood' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuMain.interval_leaf_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+All four proof modules compiled successfully.

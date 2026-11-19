@@ -1,0 +1,57 @@
+# A Lean-checked proof of Liu's Conjecture 5.1
+
+This repository proves the side-length formulation of Conjecture 5.1 in Jian Liu, *Improvements of two inequalities in an acute triangle*, International Journal of Geometry 13 (2024), no. 4, 63–79, p. 78.
+
+For positive sides of a nondegenerate triangle, with internal bisectors $w_a,w_b,w_c$, medians $m_a,m_b,m_c$, and semiperimeter $s$, the result is
+
+$$
+(w_a+w_b+w_c)(m_a^3+m_b^3+m_c^3)\ge s^4.
+$$
+
+[Original problem](https://ijgeometry.com/wp-content/uploads/2024/09/6.-63-79.pdf).
+
+## Verification status
+
+The main theorem is `LiuMain.liu_conjecture_5_1` in [Main.lean](Main.lean). Its only mathematical hypotheses are positivity of a,b,c and the three strict triangle inequalities. It uses the standard explicit side-length formulas for medians and internal bisectors, defined in [RealBounds.lean](RealBounds.lean). Euclidean points and a separate geometric derivation of these formulas are not formalized.
+
+The theorem has been compiled locally using Lean 4.19.0 and mathlib v4.19.0. Its axiom report is:
+
+```text
+[propext, Classical.choice, Quot.sound]
+```
+
+The proof has no `sorry`, `admit`, newly postulated mathematical axiom, or `native_decide`. The finite certificate uses `by decide`, checked by Lean's kernel.
+
+This is an AI-assisted research result. Novelty, priority, and publication suitability have not been independently established. It has not received independent expert review. The complete equality-case characterization has not yet been formalized. See [research status](docs/RESEARCH_STATUS.md) and [AI contribution disclosure](AI_DISCLOSURE.md).
+
+## Reproduce
+
+Install [Lean via elan](https://lean-lang.org/install/) and Git, then run from the repository root:
+
+```sh
+lake update
+lake exe cache get
+lake build
+lake env lean Main.lean
+```
+
+The Lean toolchain and mathlib revision are pinned. A GitHub Actions workflow is provided to replay the build. A workflow file being present does not mean a GitHub-hosted run has passed; consult the Actions tab and the build logs.
+
+The certificate computation is substantial compared with the analytic lemmas. The exact certificate, including its subdivision tree, is committed as source, so the Python search/generation environment is not required to verify the theorem.
+
+## Proof structure
+
+* [Certificate.lean](Certificate.lean): integer checker and explicit complete subdivision certificate.
+* [RealBounds.lean](RealBounds.lean): radical bounds, analytic near-equilateral theorem, and integer-to-real interval soundness.
+* [CheckerCoverage.lean](CheckerCoverage.lean): empty-box correctness and gap-free recursive coverage.
+* [Main.lean](Main.lean): actual leaf correctness, certificate application, scaling, permutations, and the all-triangles theorem.
+
+The certificate contains 3030 strict interval leaves, 87 analytic-neighborhood leaves, and 123 empty leaves. Numerical sampling is not used as evidence inside the formal theorem.
+
+[Human-readable proof outline](docs/proof-outline.md). The outline currently uses a slightly stronger local estimate than the Lean implementation; it should be harmonized before use as a paper.
+
+## 中文说明
+
+主不等式的边长公式表述已通过 Lean 验证。仓库用于公开源码、接受复现和审查，不宣称已确认首次解决，也不宣称已通过同行评审。剩余工作包括：在独立环境重建、核对形式化命题与原猜想、新颖性查证、等号分类，以及整理与代码一致的论文。
+
+Code and repository-authored documentation are released under the MIT license. The cited article and external dependencies retain their own licenses; the article itself is not redistributed here.
