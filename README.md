@@ -1,14 +1,16 @@
-# A Lean-checked proof of Liu's Conjecture 5.1
+# A Lean 4 Proof of Jian Liu’s Triangle Inequality for Angle Bisectors and Medians
 
-[![Verify Lean proof](https://github.com/yoaxi001/liu51-proof/actions/workflows/lean.yml/badge.svg)](https://github.com/yoaxi001/liu51-proof/actions/workflows/lean.yml)
-
-This repository proves the side-length formulation of Conjecture 5.1 in Jian Liu, *Improvements of two inequalities in an acute triangle*, International Journal of Geometry 13 (2024), no. 4, 63–79, p. 78.
-
-For positive sides of a nondegenerate triangle, with internal bisectors $w_a,w_b,w_c$, medians $m_a,m_b,m_c$, and semiperimeter $s$, the result is
+**Theorem (Jian Liu’s Conjecture 5.1).** For any nondegenerate triangle, let $w_a,w_b,w_c$ be its internal angle-bisector lengths, $m_a,m_b,m_c$ its median lengths, and $s$ its semiperimeter. Then
 
 $$
 (w_a+w_b+w_c)(m_a^3+m_b^3+m_c^3)\ge s^4.
 $$
+
+Equality holds if and only if the triangle is equilateral.
+
+[![Verify Lean proof](https://github.com/yoaxi001/liu51-proof/actions/workflows/lean.yml/badge.svg)](https://github.com/yoaxi001/liu51-proof/actions/workflows/lean.yml)
+
+This repository proves the side-length formulation of Conjecture 5.1 in Jian Liu, *Improvements of two inequalities in an acute triangle*, International Journal of Geometry 13 (2024), no. 4, 63–79, p. 78.
 
 [Original problem](https://ijgeometry.com/wp-content/uploads/2024/09/6.-63-79.pdf).
 
