@@ -19,3 +19,5 @@ jobs:
           lint: false
       - name: Print main theorem axioms
         run: lake env lean Main.lean
+      - name: Print equality theorem axioms
+        run: lake env lean Equality.lean

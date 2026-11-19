@@ -14,10 +14,10 @@ Push-Location $repoRoot
 try {
   & $resolvedLean --version
   if ($LASTEXITCODE -ne 0) { throw 'Lean version check failed' }
-  foreach ($module in @('Certificate','RealBounds','CheckerCoverage','Main')) {
+  foreach ($module in @('Certificate','RealBounds','CheckerCoverage','Main','Equality')) {
     Write-Output "Compiling $module from repository sources"
     & $resolvedLean -o "$buildRoot/$module.olean" "$module.lean"
     if ($LASTEXITCODE -ne 0) { throw "Compilation failed: $module" }
   }
-  Write-Output 'All four proof modules compiled successfully.'
+  Write-Output 'All five proof modules compiled successfully.'
 } finally { Pop-Location }

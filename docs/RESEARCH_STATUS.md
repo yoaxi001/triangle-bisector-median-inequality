@@ -13,6 +13,7 @@ The four proof modules were rebuilt from the independent D-drive repository. The
 * Sound real interval bounds derived from natural-number certificates, including truncated subtraction.
 * Complete recursive coverage of the normalized sorted triangle domain.
 * Removal of normalization and side-order restrictions.
+* Complete equality classification: equality holds if and only if the three sides are equal, in `LiuEquality.equality_iff_equilateral`. Local Lean compilation has passed with only standard foundational axioms; consult Actions for the remote replay.
 
 The proof does not assume the source article's stated acute-triangle altitude inequality.
 
@@ -25,7 +26,6 @@ The proof does not assume the source article's stated acute-triangle altitude in
 
 ## Optional extensions
 
-* Formalize that equality holds exactly for equilateral triangles. Equilateral attainment follows by direct substitution, but the converse is not part of the current checked theorem.
 * Derive the side-length formulas inside a Euclidean geometry library.
 * Seek a shorter purely analytic proof or reduce the certificate size.
 

@@ -13,12 +13,16 @@
   ],
   "git_staged_lf_source_sha256": {
     "Certificate.lean": "a71e649af1c0e445acf5000dcea812a406f5251a8fac80ceee51a9a2310fb0ac",
-    "RealBounds.lean": "7cb965443289ed40b76eb337f637be413b56e0afc244162f9b52c9d314057691",
+    "RealBounds.lean": "ce387e6badd57a7993531a4e559ed2a0c94e4adaef65ca8429434b796cf9a665",
     "CheckerCoverage.lean": "bf652f342db6818976cc300dc63dab2196cddcd8f5a7c7bbe2acdb96a2d9cc53",
-    "Main.lean": "e05f3c909d980a83f343becb4e8443616e8478db7ce7106e4fead1de339ac1ba"
+    "Main.lean": "e05f3c909d980a83f343becb4e8443616e8478db7ce7106e4fead1de339ac1ba",
+    "Equality.lean": "e70a50851a0d0a7f2f08e1a1b20f9a5d2fe020cca1356d16f8a7bbabc6df9c6f"
   },
   "github_ci_run": "https://github.com/yoaxi001/liu51-proof/actions/runs/44510445305",
   "github_verified_commit": "4e8d2db955efa1d80984bc869aa74fe4accb149e",
   "github_completed_at_utc": "2026-11-19T11:01:01Z",
-  "github_environment": "Ubuntu GitHub-hosted runner; standard Lake build"
+  "github_environment": "Ubuntu GitHub-hosted runner; standard Lake build",
+  "equality_classification_formalized": true,
+  "equality_theorem": "LiuEquality.equality_iff_equilateral",
+  "equality_local_result": "compiled successfully with the standard foundational axioms"
 }

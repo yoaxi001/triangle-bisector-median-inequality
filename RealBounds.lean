@@ -179,6 +179,31 @@ theorem aggregate_local_bounds (T u v w d e f : ℝ)
   have hrem := mul_nonneg hT0 (by linarith only [hT1] : 0 ≤ 1/4-(17/8)*T)
   nlinarith only [hprod,hrem]
 
+theorem aggregate_local_bounds_gap (T u v w d e f : ℝ)
+    (hT0 : 0 ≤ T) (hT1 : T ≤ 3/100)
+    (hu : |u| ≤ 1/4) (hv : |v| ≤ 1/4) (hw : |w| ≤ 1/4)
+    (hd : |d| ≤ 1/4) (he : |e| ≤ 1/4) (hf : |f| ≤ 1/4)
+    (husum : u+v+w=T) (hdsum : -T ≤ d+e+f)
+    (hdsq : d^2+e^2+f^2 ≤ (11/2)*T) :
+    9+T/8 ≤ (Real.sqrt (1+d)+Real.sqrt (1+e)+Real.sqrt (1+f))*
+      ((Real.sqrt (1+u))^3+(Real.sqrt (1+v))^3+(Real.sqrt (1+w))^3) := by
+  have mu := sqrt_cube_lower u (abs_le.mp hu).1 (abs_le.mp hu).2
+  have mv := sqrt_cube_lower v (abs_le.mp hv).1 (abs_le.mp hv).2
+  have mw := sqrt_cube_lower w (abs_le.mp hw).1 (abs_le.mp hw).2
+  have wd := sqrt_lower d (abs_le.mp hd).1 (abs_le.mp hd).2
+  have we := sqrt_lower e (abs_le.mp he).1 (abs_le.mp he).2
+  have wf := sqrt_lower f (abs_le.mp hf).1 (abs_le.mp hf).2
+  have hm : 3+(3/2)*T ≤ (Real.sqrt (1+u))^3+(Real.sqrt (1+v))^3+(Real.sqrt (1+w))^3 := by
+    nlinarith only [mu,mv,mw,husum,sq_nonneg u,sq_nonneg v,sq_nonneg w]
+  have hl : 3-(17/12)*T ≤ Real.sqrt (1+d)+Real.sqrt (1+e)+Real.sqrt (1+f) := by
+    linarith only [wd,we,wf,hdsum,hdsq]
+  have hm0 : 0 ≤ 3+(3/2)*T := by linarith only [hT0]
+  have hl0 : 0 ≤ Real.sqrt (1+d)+Real.sqrt (1+e)+Real.sqrt (1+f) := by
+    linarith only [hl,hT1]
+  have hprod := mul_le_mul hl hm hm0 hl0
+  have hrem := mul_nonneg hT0 (by linarith only [hT1] : 0 ≤ 1/8-(17/8)*T)
+  nlinarith only [hprod,hrem]
+
 theorem local_radical_product (p q r : ℝ)
     (hs : p+q+r=0)
     (hp : |p| ≤ 1/10) (hq : |q| ≤ 1/10) (hr : |r| ≤ 1/10) :
@@ -241,6 +266,70 @@ theorem local_radical_product (p q r : ℝ)
     linarith only [hLp,hLq,hLr,hsumz2,hTeq,hT0]
   have husum : up+uq+ur=T := by dsimp [up,uq,ur,T]; nlinarith only [hs]
   exact aggregate_local_bounds T up uq ur (-2*p-zp) (-2*q-zq) (-2*r-zr)
+    hT0 hT1 hup huq hur hdp hdq hdr husum hsumd hsumd2
+
+theorem local_radical_product_gap (p q r : ℝ)
+    (hs : p+q+r=0)
+    (hp : |p| ≤ 1/10) (hq : |q| ≤ 1/10) (hr : |r| ≤ 1/10) :
+    let T := p^2+q^2+r^2
+    let u := fun x => -2*x+(2/3)*T-x^2
+    let d := fun x y z => -2*x-(1-2*x)/(2-x)^2*(y-z)^2
+    9+T/8 ≤ (Real.sqrt (1+d p q r)+Real.sqrt (1+d q r p)+Real.sqrt (1+d r p q)) *
+      ((Real.sqrt (1+u p))^3+(Real.sqrt (1+u q))^3+(Real.sqrt (1+u r))^3) := by
+  let T := p^2+q^2+r^2
+  let up := -2*p+(2/3)*T-p^2
+  let uq := -2*q+(2/3)*T-q^2
+  let ur := -2*r+(2/3)*T-r^2
+  let zp := (1-2*p)/(2-p)^2*(q-r)^2
+  let zq := (1-2*q)/(2-q)^2*(r-p)^2
+  let zr := (1-2*r)/(2-r)^2*(p-q)^2
+  have hs1 : q+r+p=0 := by linarith
+  have hs2 : r+p+q=0 := by linarith
+  have bu := perturbation_bounds p q r hs hp hq hr
+  have bv := perturbation_bounds q r p hs1 hq hr hp
+  have bw := perturbation_bounds r p q hs2 hr hp hq
+  have bp := bisector_loss_bounds p q r hp hq hr
+  have bq := bisector_loss_bounds q r p hq hr hp
+  have br := bisector_loss_bounds r p q hr hp hq
+  have hT0 : 0 ≤ T := bu.1
+  have hT1 : T ≤ 3/100 := bu.2.1
+  have hup : |up| ≤ 1/4 := abs_le.mpr bu.2.2
+  have huq : |uq| ≤ 1/4 := by
+    apply abs_le.mpr
+    dsimp [uq,T]
+    convert bv.2.2 using 1 <;> ring
+  have hur : |ur| ≤ 1/4 := by
+    apply abs_le.mpr
+    dsimp [ur,T]
+    convert bw.2.2 using 1 <;> ring
+  have hdp : |-2*p-zp| ≤ 1/4 := abs_le.mpr ⟨bp.2.2.2.1,bp.2.2.2.2.1⟩
+  have hdq : |-2*q-zq| ≤ 1/4 := abs_le.mpr ⟨bq.2.2.2.1,bq.2.2.2.2.1⟩
+  have hdr : |-2*r-zr| ≤ 1/4 := abs_le.mpr ⟨br.2.2.2.1,br.2.2.2.2.1⟩
+  have hDp : zp ≤ (q-r)^2/3 := bp.2.1
+  have hDq : zq ≤ (r-p)^2/3 := bq.2.1
+  have hDr : zr ≤ (p-q)^2/3 := br.2.1
+  have hSp : zp^2 ≤ (q-r)^2/225 := bp.2.2.1
+  have hSq : zq^2 ≤ (r-p)^2/225 := bq.2.2.1
+  have hSr : zr^2 ≤ (p-q)^2/225 := br.2.2.1
+  have hLp : (-2*p-zp)^2 ≤ 5*p^2+5*zp^2 := bp.2.2.2.2.2
+  have hLq : (-2*q-zq)^2 ≤ 5*q^2+5*zq^2 := bq.2.2.2.2.2
+  have hLr : (-2*r-zr)^2 ≤ 5*r^2+5*zr^2 := br.2.2.2.2.2
+  have hD : (q-r)^2+(r-p)^2+(p-q)^2=3*T := by
+    dsimp [T]
+    have hzero : (p+q+r)^2=0 := by rw [hs]; norm_num
+    nlinarith only [hzero]
+  have hsumz : zp+zq+zr ≤ T := by linarith only [hDp,hDq,hDr,hD]
+  have hsumz2 : zp^2+zq^2+zr^2 ≤ T/75 := by
+    calc
+      _ ≤ (q-r)^2/225+(r-p)^2/225+(p-q)^2/225 := add_le_add (add_le_add hSp hSq) hSr
+      _ = ((q-r)^2+(r-p)^2+(p-q)^2)/225 := by ring
+      _ = T/75 := by rw [hD]; ring
+  have hsumd : -T ≤ (-2*p-zp)+(-2*q-zq)+(-2*r-zr) := by linarith only [hs,hsumz]
+  have hTeq : T=p^2+q^2+r^2 := rfl
+  have hsumd2 : (-2*p-zp)^2+(-2*q-zq)^2+(-2*r-zr)^2 ≤ (11/2)*T := by
+    linarith only [hLp,hLq,hLr,hsumz2,hTeq,hT0]
+  have husum : up+uq+ur=T := by dsimp [up,uq,ur,T]; nlinarith only [hs]
+  exact aggregate_local_bounds_gap T up uq ur (-2*p-zp) (-2*q-zq) (-2*r-zr)
     hT0 hT1 hup huq hur hdp hdq hdr husum hsumd hsumd2
 
 theorem median_local_factor (p q r : ℝ) (hs : p+q+r=0) :
@@ -334,6 +423,64 @@ theorem local_triangle_inequality (p q r : ℝ)
   rw [mp,mq,mr,wp,wq,wr]
   calc
     (81/16:ℝ) = k^4*9 := by rw [hk4]; norm_num
+    _ ≤ k^4*((Real.sqrt (1+d p q r)+Real.sqrt (1+d q r p)+Real.sqrt (1+d r p q))*
+      ((Real.sqrt (1+u p))^3+(Real.sqrt (1+u q))^3+(Real.sqrt (1+u r))^3)) := scaled
+    _ = _ := by ring
+
+theorem local_triangle_gap (p q r : ℝ)
+    (hs : p+q+r=0)
+    (hp : |p| ≤ 1/10) (hq : |q| ≤ 1/10) (hr : |r| ≤ 1/10) :
+    (81/16:ℝ)+(9/128)*(p^2+q^2+r^2) ≤
+      (bisector (1+p) (1+q) (1+r)+bisector (1+q) (1+r) (1+p)+bisector (1+r) (1+p) (1+q))*
+      ((median (1+p) (1+q) (1+r))^3+(median (1+q) (1+r) (1+p))^3+(median (1+r) (1+p) (1+q))^3) := by
+  let T := p^2+q^2+r^2
+  let u := fun (x : ℝ) => -2*x+(2/3)*T-x^2
+  let d := fun (x y z : ℝ) => -2*x-(1-2*x)/(2-x)^2*(y-z)^2
+  let k := Real.sqrt (3/4:ℝ)
+  have hs1 : q+r+p=0 := by linarith
+  have hs2 : r+p+q=0 := by linarith
+  have hp2 : p ≠ 2 := by have hh := (abs_le.mp hp).2; linarith
+  have hq2 : q ≠ 2 := by have hh := (abs_le.mp hq).2; linarith
+  have hr2 : r ≠ 2 := by have hh := (abs_le.mp hr).2; linarith
+  have htq : q^2+r^2+p^2=p^2+q^2+r^2 := by ring
+  have htr : r^2+p^2+q^2=p^2+q^2+r^2 := by ring
+  have mp : median (1+p) (1+q) (1+r)=k*Real.sqrt (1+u p) := by
+    dsimp [k,u,T]
+    rw [median_local_factor p q r hs]
+    congr 2 <;> ring
+  have mq : median (1+q) (1+r) (1+p)=k*Real.sqrt (1+u q) := by
+    have hh := median_local_factor q r p hs1
+    rw [htq] at hh
+    dsimp [k,u,T]
+    rw [hh]
+    congr 2 <;> ring
+  have mr : median (1+r) (1+p) (1+q)=k*Real.sqrt (1+u r) := by
+    have hh := median_local_factor r p q hs2
+    rw [htr] at hh
+    dsimp [k,u,T]
+    rw [hh]
+    congr 2 <;> ring
+  have wp : bisector (1+p) (1+q) (1+r)=k*Real.sqrt (1+d p q r) := by
+    dsimp [k,d]
+    rw [bisector_local_factor p q r hs hp2]
+    congr 2 <;> ring
+  have wq : bisector (1+q) (1+r) (1+p)=k*Real.sqrt (1+d q r p) := by
+    dsimp [k,d]
+    rw [bisector_local_factor q r p hs1 hq2]
+    congr 2 <;> ring
+  have wr : bisector (1+r) (1+p) (1+q)=k*Real.sqrt (1+d r p q) := by
+    dsimp [k,d]
+    rw [bisector_local_factor r p q hs2 hr2]
+    congr 2 <;> ring
+  have hk2 : k^2=(3/4:ℝ) := Real.sq_sqrt (by norm_num)
+  have hk4 : k^4=(9/16:ℝ) := by nlinarith only [sq_nonneg (k^2-3/4),hk2]
+  have root := local_radical_product_gap p q r hs hp hq hr
+  change 9+T/8 ≤ (Real.sqrt (1+d p q r)+Real.sqrt (1+d q r p)+Real.sqrt (1+d r p q))*
+    ((Real.sqrt (1+u p))^3+(Real.sqrt (1+u q))^3+(Real.sqrt (1+u r))^3) at root
+  have scaled := mul_le_mul_of_nonneg_left root (by positivity : 0 ≤ k^4)
+  rw [mp,mq,mr,wp,wq,wr]
+  calc
+    (81/16:ℝ)+(9/128)*(p^2+q^2+r^2) = k^4*(9+T/8) := by rw [hk4]; dsimp [T]; ring
     _ ≤ k^4*((Real.sqrt (1+d p q r)+Real.sqrt (1+d q r p)+Real.sqrt (1+d r p q))*
       ((Real.sqrt (1+u p))^3+(Real.sqrt (1+u q))^3+(Real.sqrt (1+u r))^3)) := scaled
     _ = _ := by ring

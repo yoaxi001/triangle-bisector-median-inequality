@@ -26,7 +26,9 @@ The standard Lake build and the final axiom report also passed on GitHub's Ubunt
 
 The proof has no `sorry`, `admit`, newly postulated mathematical axiom, or `native_decide`. The finite certificate uses `by decide`, checked by Lean's kernel.
 
-This is an AI-assisted research result. Novelty, priority, and publication suitability have not been independently established. It has not received independent expert review. The complete equality-case characterization has not yet been formalized. See [research status](docs/RESEARCH_STATUS.md) and [AI contribution disclosure](AI_DISCLOSURE.md).
+The complete equality classification is formalized in `LiuEquality.equality_iff_equilateral` in [Equality.lean](Equality.lean): equality holds if and only if `a = b` and `b = c`. It has passed local compilation with the same standard axiom report; consult Actions for the remote replay of each revision.
+
+This is an AI-assisted research result. Novelty, priority, and publication suitability have not been independently established. It has not received independent expert review. See [research status](docs/RESEARCH_STATUS.md) and [AI contribution disclosure](AI_DISCLOSURE.md).
 
 ## Reproduce
 
@@ -49,6 +51,7 @@ The certificate computation is substantial compared with the analytic lemmas. Th
 * [RealBounds.lean](RealBounds.lean): radical bounds, analytic near-equilateral theorem, and integer-to-real interval soundness.
 * [CheckerCoverage.lean](CheckerCoverage.lean): empty-box correctness and gap-free recursive coverage.
 * [Main.lean](Main.lean): actual leaf correctness, certificate application, scaling, permutations, and the all-triangles theorem.
+* [Equality.lean](Equality.lean): complete equality classification using a quantitative local gap and strict interval leaves.
 
 The certificate contains 3030 strict interval leaves, 87 analytic-neighborhood leaves, and 123 empty leaves. Numerical sampling is not used as evidence inside the formal theorem.
 
@@ -56,6 +59,6 @@ The certificate contains 3030 strict interval leaves, 87 analytic-neighborhood l
 
 ## 中文说明
 
-主不等式的边长公式表述已通过 Lean 验证。仓库用于公开源码、接受复现和审查，不宣称已确认首次解决，也不宣称已通过同行评审。剩余工作包括：在独立环境重建、核对形式化命题与原猜想、新颖性查证、等号分类，以及整理与代码一致的论文。
+主不等式及“等号当且仅当三角形等边”的分类均已通过本地 Lean 验证。仓库用于公开源码、接受复现和审查，不宣称已确认首次解决，也不宣称已通过同行评审。剩余工作包括独立专家复核、核对形式化命题与原猜想、新颖性查证，以及整理与代码一致的论文。
 
 Code and repository-authored documentation are released under the MIT license. The cited article and external dependencies retain their own licenses; the article itself is not redistributed here.

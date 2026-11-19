@@ -9,4 +9,4 @@ rev = "v4.19.0"
 
 [[lean_lib]]
 name = "Liu51"
-roots = ["Certificate", "RealBounds", "CheckerCoverage", "Main"]
+roots = ["Certificate", "RealBounds", "CheckerCoverage", "Main", "Equality"]

@@ -1,0 +1,13 @@
+Equality.lean:45:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Equality.lean:129:93: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Equality.lean:132:93: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Equality.lean:135:97: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'LiuEquality.equality_iff_equilateral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuEquality.sorted_triangle_equality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuEquality.certificate_equality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuEquality.local_equality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LiuEquality.mean_equality' depends on axioms: [propext, Classical.choice, Quot.sound]
