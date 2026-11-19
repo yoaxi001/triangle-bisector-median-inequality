@@ -4,7 +4,7 @@ Date: 2026-11-19.
 
 ## Reproduction completed
 
-The four proof modules were rebuilt from the independent D-drive repository. The portable Lake build then passed on GitHub's Ubuntu runner, including the final theorem axiom report: [run 44510445305](https://github.com/yoaxi001/liu51-proof/actions/runs/44510445305), source commit `4e8d2db955efa1d80984bc869aa74fe4accb149e`. The report contains only propext, Classical.choice and Quot.sound. This supplies a separate-machine replay; it does not supply independent expert review or novelty verification.
+The four proof modules were rebuilt from the independent D-drive repository. The portable Lake build then passed on GitHub's Ubuntu runner, including the final theorem axiom report: [run 44510445305](https://github.com/yoaxi001/triangle-bisector-median-inequality/actions/runs/44510445305), source commit `4e8d2db955efa1d80984bc869aa74fe4accb149e`. The report contains only propext, Classical.choice and Quot.sound. This supplies a separate-machine replay; it does not supply independent expert review or novelty verification.
 
 ## Established in the formal proof
 

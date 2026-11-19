@@ -18,7 +18,7 @@
     "Main.lean": "e05f3c909d980a83f343becb4e8443616e8478db7ce7106e4fead1de339ac1ba",
     "Equality.lean": "e70a50851a0d0a7f2f08e1a1b20f9a5d2fe020cca1356d16f8a7bbabc6df9c6f"
   },
-  "github_ci_run": "https://github.com/yoaxi001/liu51-proof/actions/runs/44510445305",
+  "github_ci_run": "https://github.com/yoaxi001/triangle-bisector-median-inequality/actions/runs/44510445305",
   "github_verified_commit": "4e8d2db955efa1d80984bc869aa74fe4accb149e",
   "github_completed_at_utc": "2026-11-19T11:01:01Z",
   "github_environment": "Ubuntu GitHub-hosted runner; standard Lake build",

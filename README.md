@@ -8,7 +8,7 @@ $$
 
 Equality holds if and only if the triangle is equilateral.
 
-[![Verify Lean proof](https://github.com/yoaxi001/liu51-proof/actions/workflows/lean.yml/badge.svg)](https://github.com/yoaxi001/liu51-proof/actions/workflows/lean.yml)
+[![Verify Lean proof](https://github.com/yoaxi001/triangle-bisector-median-inequality/actions/workflows/lean.yml/badge.svg)](https://github.com/yoaxi001/triangle-bisector-median-inequality/actions/workflows/lean.yml)
 
 This repository proves the side-length formulation of Conjecture 5.1 in Jian Liu, *Improvements of two inequalities in an acute triangle*, International Journal of Geometry 13 (2024), no. 4, 63–79, p. 78.
 
@@ -24,7 +24,7 @@ The theorem has been compiled locally using Lean 4.19.0 and mathlib v4.19.0. Its
 [propext, Classical.choice, Quot.sound]
 ```
 
-The standard Lake build and the final axiom report also passed on GitHub's Ubuntu runner on 2026-11-19, for source commit `4e8d2db955efa1d80984bc869aa74fe4accb149e`: [successful verification run](https://github.com/yoaxi001/liu51-proof/actions/runs/44510445305). This is a separate machine replay, not an independent mathematical peer review.
+The standard Lake build and the final axiom report also passed on GitHub's Ubuntu runner on 2026-11-19, for source commit `4e8d2db955efa1d80984bc869aa74fe4accb149e`: [successful verification run](https://github.com/yoaxi001/triangle-bisector-median-inequality/actions/runs/44510445305). This is a separate machine replay, not an independent mathematical peer review.
 
 The proof has no `sorry`, `admit`, newly postulated mathematical axiom, or `native_decide`. The finite certificate uses `by decide`, checked by Lean's kernel.
 
