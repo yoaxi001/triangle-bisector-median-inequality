@@ -1,5 +1,9 @@
 # A Lean 4 Proof of Jian Liu’s Triangle Inequality for Angle Bisectors and Medians
 
+**Jian Liu 猜想 5.1：三角形角平分线与中线不等式。** 已完成边长公式表述及等号条件的 Lean 4 形式化证明。关键词：三角形不等式、角平分线、中线、半周长、等边三角形。
+
+[All mathematics projects / 数学课题总目录](https://github.com/yoaxi001/math-projects)
+
 **Theorem (Jian Liu’s Conjecture 5.1).** For any nondegenerate triangle, let $w_a,w_b,w_c$ be its internal angle-bisector lengths, $m_a,m_b,m_c$ its median lengths, and $s$ its semiperimeter. Then
 
 $$
